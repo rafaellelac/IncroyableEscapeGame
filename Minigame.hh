@@ -1,7 +1,12 @@
-#include <iostream>
+#pragma once
+#include <SFML/Graphics.hpp>
 #include <string>
-//une classe abstraite de laquelle les différents jeux de l'escape game héritent 
-class Minigame {
+
+class MiniGame {
 public:
-    virtual bool play() = 0; // Fonction virtuelle pure
+    virtual ~MiniGame() = default;
+    virtual void init() = 0;
+    virtual void update(float deltaTime) = 0;
+    virtual void render(sf::RenderWindow& window) = 0;
+    virtual bool isCompleted() const = 0;
 };
