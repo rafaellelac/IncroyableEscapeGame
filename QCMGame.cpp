@@ -27,8 +27,8 @@ void QCMGame::init() {
 
 void QCMGame::addQuestions() {
     questions.push_back({"Quelle est la capitale de l'Allemagne ?", {"Munich", "Berlin"}, 1});
-    questions.push_back({"Quelle est la couleur de la case 1 du puzzle", {"Bleu", "Rouge", "Vert"}, 2});
-    questions.push_back({"Quel est le chiffre en haut à droite du labyrinthe ?", {"1","5","9"}, 0});
+    questions.push_back({"Quelle est la couleur de la case 1 du puzzle", {"Bleu", "Rouge", "Vert"}, 0});
+    questions.push_back({"Quel est le chiffre en haut à droite du labyrinthe ?", {"1","5","9"}, 2});
     questions.push_back({"Les micro-ondes de la tour 66 sont à quel étage?", {"-1", "5","6"}, 1});
     questions.push_back({"Est-ce que ce jeu est incroyable?", {"oui","OUI!!"}, 1});
 }
