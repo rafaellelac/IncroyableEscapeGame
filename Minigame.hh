@@ -1,7 +1,10 @@
-#include <iostream>
+#pragma once
+#include <SFML/Graphics.hpp>
 #include <string>
-//une classe abstraite de laquelle les différents jeux de l'escape game héritent 
-class Minigame {
+#include "state.hh"
+
+class MiniGame : public Engine::State{
+
 public:
-    virtual bool play() = 0; // Fonction virtuelle pure
+    virtual bool isCompleted() const = 0;
 };
