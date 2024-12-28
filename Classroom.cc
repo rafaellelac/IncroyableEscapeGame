@@ -3,12 +3,14 @@
 #include "asset.hh"
 #include "game.hh"
 #include "Classroom.hh"
+#include "MECMaze.hh"
 
 Classroom::Classroom(std::shared_ptr<Context> &context): m_context(context), isComputerSelected(false),isDoorSelected(false),isComputerPressed(false),isDoorPressed(false){   
     };
 
 
 void Classroom::Init(){
+
 
     //Background
     m_backgroundSprite.setTexture(m_context->m_assets->GetTexture(CLASSROOM));
@@ -84,7 +86,16 @@ void Classroom::ProcessInput(){
 }
 
 
-void Classroom::Update(sf::Time deltaTime) {}
+void Classroom::Update(sf::Time deltaTime) {
+    if (isComputerPressed) {
+        m_context->m_states->Add(std::make_unique<MECMaze>(m_context));
+        isComputerPressed = false;
+    }
+    /*if (isDoorPressed) {
+        m_context->m_states->Add(std::make_unique<MainMenu>(m_context));
+        isDoorPressed = false;
+    }*/
+}
 
 
 void Classroom::Draw() {

@@ -15,8 +15,8 @@ namespace Engine
         virtual void ProcessInput()=0;
         virtual void Update(sf::Time deltaTime)=0;
         virtual void Draw() = 0;
-        virtual void Pause(){};
-        virtual void Start(){};
+        virtual void Start() {}
+        virtual void Pause() {}
     };
 
 

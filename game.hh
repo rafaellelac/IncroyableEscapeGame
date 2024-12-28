@@ -15,6 +15,7 @@ enum AssetID
     MAZE,
     PLAYER,
     CLASSROOM,
+    COMPUTER_SCREEN,
 };
 
 struct Context{
