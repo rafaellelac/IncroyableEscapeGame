@@ -137,6 +137,7 @@ void MazeGame::Draw() {
         if (completed) {
             std::cout << "Maze completed!" << std::endl;
             window.close();
+            m_context->m_states->PopCurrent();  
         }
     }
 }

@@ -14,6 +14,7 @@ enum AssetID
     COMPUTER_FONT,
     MAZE,
     PLAYER,
+    CLASSROOM,
 };
 
 struct Context{

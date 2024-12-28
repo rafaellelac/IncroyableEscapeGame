@@ -1,6 +1,7 @@
 #include "MEC.hh"
-#include "Maze.hh"
+#include "Classroom.hh"
 #include <memory>
+
 
 MEC::MEC(std::shared_ptr<Context> &context) : m_context(context) {}
 
@@ -8,11 +9,21 @@ MEC::MEC(std::shared_ptr<Context> &context) : m_context(context) {}
 void MEC::Init(){
 
     m_context->m_assets->AddFont(COMPUTER_FONT, "ASSETS/computer.ttf" );
+    m_context->m_assets->AddTexture(CLASSROOM, "ASSETS/classroom.jpg" );
+
+    //Background
+    m_backgroundSprite.setTexture(m_context->m_assets->GetTexture(CLASSROOM));
+    m_backgroundSprite.setScale(
+        m_context->m_window->getSize().x / m_backgroundSprite.getLocalBounds().width,
+        m_context->m_window->getSize().y / m_backgroundSprite.getLocalBounds().height
+    );
 
     //Context Text
-    m_gamecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
-    m_gamecontext.setFillColor(sf::Color::White);
-    m_gamecontext.setCharacterSize(30);
+    m_gamecontext.setFont(m_context->m_assets->GetFont(MAIN_FONT));
+    m_gamecontext.setFillColor(sf::Color::Black);
+    m_gamecontext.setOutlineColor(sf::Color::White);
+    m_gamecontext.setOutlineThickness(3);
+    m_gamecontext.setCharacterSize(40);
     m_gamecontext.setString("Vous vous etes endormi en TP de C++.\nLorsque vous vous reveillez, la salle est vide \net la porte est fermee a cle. \nVous devez trouver un moyen de sortir de la salle \navant que le professeur ne revienne. \nPour cela, vous devez reussir a ouvrir la porte \nen resolvant des enigmes.\nBonne chance !");
     m_gamecontext.setOrigin(
         m_gamecontext.getLocalBounds().width / 2, 
@@ -61,7 +72,7 @@ void MEC::ProcessInput(){
                     break;
                 case sf::Keyboard::Return:
                     {
-                   m_context->m_states->Add(std::make_unique<MazeGame>(m_context));
+                   m_context->m_states->Add(std::make_unique<Classroom>(m_context));
                     }
                     break;
                 default:
@@ -76,7 +87,8 @@ void MEC::Update(sf::Time deltaTime) {}
         
         
 void MEC::Draw() {
-    m_context->m_window->clear(sf::Color::Black);
+    m_context->m_window->clear();
+    m_context->m_window->draw(m_backgroundSprite);
     m_context->m_window->draw(m_gamecontext);
     m_context->m_window->draw(m_next);
     m_context->m_window->draw(m_back);

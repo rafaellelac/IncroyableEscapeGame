@@ -11,7 +11,9 @@ class Classroom : public Engine::State{
     private:
         std::shared_ptr<Context> m_context;
         sf::Sprite m_backgroundSprite;
-        //add all buttons
+        sf::Text m_computerButton;
+        sf::Text m_doorButton;
+        
         bool isComputerSelected;
         bool isDoorSelected;
         bool isComputerPressed;
