@@ -4,7 +4,7 @@
 #include <algorithm>
 
 EinsteinPuzzle::EinsteinPuzzle(): 
-    window(sf::VideoMode(550, 400), "Einstein Puzzle Game"),
+    window(sf::VideoMode(550, 500), "Einstein Puzzle Game"),
     isDragging(false),
     currentDraggable(nullptr),
     solutionFound(false) {
@@ -106,22 +106,29 @@ void EinsteinPuzzle::reset() {
     //create an answer box
     answerBox.setSize(sf::Vector2f(120, 30));
     answerBox.setFillColor(sf::Color::Green);
-    answerBox.setPosition(250, 250);
+    answerBox.setPosition(300, 430);
     font.loadFromFile("resources/font.ttf");
     answerText.setFont(font);
     answerText.setString("Check Answer");
     answerText.setCharacterSize(20);
-    answerText.setPosition(250, 250);
+    answerText.setPosition(300, 430);
     answerText.setFillColor(sf::Color::White);
-    inputBox.setSize(sf::Vector2f(80, 30));
+    inputBox.setSize(sf::Vector2f(130, 30));
     inputBox.setFillColor(sf::Color::White);
     inputBox.setOutlineColor(sf::Color::Black);
     inputBox.setOutlineThickness(2);
-    inputBox.setPosition(160, 250);
+    inputBox.setPosition(140, 430);
     inputText.setFont(font);
     inputText.setCharacterSize(24);
-    inputText.setPosition(180, 250);
+    inputText.setPosition(150, 430);
     inputText.setFillColor(sf::Color::Black);
+
+    phraseText.setFont(font);
+    phraseText.setString("Ces femmes sont :");
+    phraseText.setCharacterSize(20);
+    phraseText.setPosition(160, 400); // Position above the answer box
+    phraseText.setFillColor(sf::Color::Black);
+
 }
 
 
@@ -272,6 +279,7 @@ void EinsteinPuzzle::draw() {
     window.draw(answerText); // Display the answer text
     window.draw(inputBox); // Draw the input box
     window.draw(inputText); // Display the player's input
+    window.draw(phraseText);
     window.display();
 }
 
@@ -309,7 +317,7 @@ void EinsteinPuzzle::draw() {
 bool EinsteinPuzzle::checkSolution() {
 
     // Check the typed answer
-    if (playerInput == "cat") {
+    if (playerInput == "incroyables") {
         std::cout << "Solution found!" << std::endl;
         solutionFound = true;
         sf::sleep(sf::seconds(3)); // Wait for 3 seconds
@@ -320,8 +328,6 @@ bool EinsteinPuzzle::checkSolution() {
     }
     return solutionFound;
 }
-
-
 
 
 
