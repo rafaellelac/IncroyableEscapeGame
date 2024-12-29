@@ -7,20 +7,23 @@ QCMGame::QCMGame(sf::RenderWindow* window)
 
 void QCMGame::init() {
     // Charger la police
-    if (!font.loadFromFile("arial.ttf")) {
+    if (!font.loadFromFile("brightalmond.ttf")) {
+        std::cerr << "Erreur lors du chargement de la police !" << std::endl;
+    }
+    if(!timerFont.loadFromFile("arial.ttf")) {
         std::cerr << "Erreur lors du chargement de la police !" << std::endl;
     }
 
     // Initialiser le texte
     questionText.setFont(font);
-    questionText.setCharacterSize(24);
+    questionText.setCharacterSize(30);
     questionText.setFillColor(sf::Color::White);
     questionText.setPosition(50, 50);
 
-    timerText.setFont(font);
-    timerText.setCharacterSize(20);
+    timerText.setFont(timerFont);
+    timerText.setCharacterSize(25);
     timerText.setFillColor(sf::Color::Red);
-    timerText.setPosition(500, 500);
+    timerText.setPosition(900, 50);
 
     addQuestions();
 }
@@ -115,7 +118,7 @@ void QCMGame::resetGame(const std::string& message) {
 }
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "QCM Game");
+    sf::RenderWindow window(sf::VideoMode(1250, 780), "QCM Game");
     QCMGame game(&window);
 
     game.init();

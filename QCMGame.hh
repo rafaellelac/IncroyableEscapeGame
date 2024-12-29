@@ -14,6 +14,7 @@ class QCMGame : public MiniGame {
 private:
     sf::RenderWindow* window;
     sf::Font font;
+    sf::Font timerFont;
     sf::Text questionText;
     std::vector<sf::Text> optionsText;
     sf::Text timerText;
