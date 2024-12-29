@@ -1,4 +1,4 @@
-#include "Maze.hh"
+#include "MazeGame.hh"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "asset.hh"
@@ -12,36 +12,34 @@ MazeGame::MazeGame(std::shared_ptr<Context> &context) : m_context(context), comp
 }
 
 void MazeGame::Init() {
-    // Initialize the game (if needed)
+
     // Load the maze texture
     m_context->m_assets->AddTexture(MAZE, "ASSETS/maze.png" );
     mazeSprite.setTexture(m_context->m_assets->GetTexture(MAZE));
 
     // Calculate the scale factor to fit the maze to the window
     sf::Vector2u mazeSize = mazeSprite.getTexture()->getSize();
-    float scaleX = static_cast<float>(800) / static_cast<float>(mazeSize.x);
-    float scaleY = static_cast<float>(800) / static_cast<float>(mazeSize.y);
+    float scaleX = static_cast<float>(1000) / static_cast<float>(mazeSize.x);
+    float scaleY = static_cast<float>(1000) / static_cast<float>(mazeSize.y);
     float scale = std::min(scaleX, scaleY); // Use the smaller scale to fit the maze within the window
 
     // Apply the scale factor to the maze sprite
     mazeSprite.setScale(scale, scale);
 
-
     // Load the player texture
-    m_context->m_assets->AddTexture(PLAYER, "ASSETS/player.png" );
+    m_context->m_assets->AddTexture(PLAYER, "ASSETS/naomi.png" );
     playerSprite.setTexture(m_context->m_assets->GetTexture(PLAYER));
 
     // Set the scale of the player sprite
-    playerSprite.setScale(0.01f, 0.01f); // Adjust the scale as needed
+    playerSprite.setScale(0.015f, 0.015f); // Adjust the scale as needed
 
-    playerPosition = { 50.0f, 50.0f }; // Starting position
+    //playerPosition = { 50.0f, 50.0f }; // Starting position
+    playerPosition = { 60.0f, 40.0f }; // Adjusted starting position
     playerSprite.setPosition(playerPosition);
 
     // Convert the maze texture to an image for pixel checking
     mazeImage = mazeSprite.getTexture()->copyToImage();
 
-    // Debug output to check initial state
-    std::cout << "Maze and player textures loaded successfully" << std::endl;
 }
 
 bool MazeGame::isPixelBlack(const sf::Vector2f& position) {
@@ -105,16 +103,15 @@ void MazeGame::Update(sf::Time deltaTime) {
     }
 
     // Check if the player has reached the exit
-    if (playerPosition.x > 750.0f && playerPosition.y > 750.0f) {
+    if (playerPosition.x > 955.0f && playerPosition.y > 950.0f) {
         completed = true;
     }
 }
 
 
 void MazeGame::Draw() {
-    // Debug output to check if render is being called
-    std::cout << "Rendering maze and player" << std::endl;
-    sf::RenderWindow window(sf::VideoMode(800, 800), "Maze Game");
+
+    sf::RenderWindow window(sf::VideoMode(1000, 1000), "Maze Game");
 
     Init();
 
@@ -135,9 +132,9 @@ void MazeGame::Draw() {
         Update(sf::seconds(1.f / 60.f));
 
         if (completed) {
-            std::cout << "Maze completed!" << std::endl;
             window.close();
-            m_context->m_states->PopCurrent();  
+            m_context->m_states->PopCurrent(); 
+            //add state to MECpuzzle 
         }
     }
 }

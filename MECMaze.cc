@@ -1,6 +1,7 @@
 #include "MECMaze.hh"
 #include "Classroom.hh"
 #include <memory>
+#include "MazeGame.hh"
 
 
 MECMaze::MECMaze(std::shared_ptr<Context> &context) : m_context(context) {}
@@ -21,10 +22,10 @@ void MECMaze::Init(){
     //Context Text
     m_mazecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_mazecontext.setFillColor(sf::Color::Black);
-    m_mazecontext.setOutlineColor(sf::Color::White);
-    m_mazecontext.setOutlineThickness(2);
+    //m_mazecontext.setOutlineColor(sf::Color::White);
+    //m_mazecontext.setOutlineThickness(2);
     m_mazecontext.setCharacterSize(35);
-    m_mazecontext.setString("Vous vous etes endormi en TP de C++.\nLorsque vous vous reveillez, la salle est vide \net la porte est fermee a cle. \nVous devez trouver un moyen de sortir de la salle \navant que le professeur ne revienne. \nPour cela, vous devez reussir a ouvrir la porte \nen resolvant des enigmes.\nBonne chance !");
+    m_mazecontext.setString("Bienvenue \n\nAide Naomi Parker a sortir du labyrinthe,\nyou can do it!\nPour cela, utilisez les fleches \ndirectionnelles de votre clavier.\n\nAttention, chaque detail compte, \nprenez des notes!");
     m_mazecontext.setOrigin(
         m_mazecontext.getLocalBounds().width / 2, 
         m_mazecontext.getLocalBounds().height / 2
@@ -38,7 +39,7 @@ void MECMaze::Init(){
     m_next.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_next.setFillColor(sf::Color::Blue);
     m_next.setCharacterSize(20);
-    m_next.setString("Appuyer sur ENTRER pour jouer");
+    m_next.setString("Appuyer sur ENTRER pour acceder au labyrinthe");
     m_next.setOrigin(
         m_next.getLocalBounds().width, 
         m_next.getLocalBounds().height
@@ -66,7 +67,7 @@ void MECMaze::ProcessInput(){
                     break;
                 case sf::Keyboard::Return:
                     {
-                   m_context->m_states->Add(std::make_unique<Classroom>(m_context));
+                   m_context->m_states->Add(std::make_unique<MazeGame>(m_context));
                     }
                     break;
                 default:
