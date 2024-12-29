@@ -16,6 +16,7 @@ enum AssetID
     PLAYER,
     CLASSROOM,
     COMPUTER_SCREEN,
+    PUZZLE,
 };
 
 struct Context{

@@ -2,9 +2,10 @@
 #include "Classroom.hh"
 #include <memory>
 #include "MazeGame.hh"
+#include "Puzzle.hh"
 
 
-MECMaze::MECMaze(std::shared_ptr<Context> &context) : m_context(context) {}
+MECMaze::MECMaze(std::shared_ptr<Context> &context) : MEC(context) {}
 
 
 void MECMaze::Init(){

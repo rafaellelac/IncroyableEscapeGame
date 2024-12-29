@@ -2,6 +2,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "asset.hh"
+#include "MECPuzzle.hh"
 
 // Overload the division operator for sf::Vector2f
 sf::Vector2f operator/(const sf::Vector2f& vec, const sf::Vector2f& divisor) {
@@ -134,7 +135,7 @@ void MazeGame::Draw() {
         if (completed) {
             window.close();
             m_context->m_states->PopCurrent(); 
-            //add state to MECpuzzle 
+            m_context->m_states->Add(std::make_unique<MECPuzzle>(m_context));
         }
     }
 }

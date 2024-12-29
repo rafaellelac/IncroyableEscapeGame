@@ -6,7 +6,7 @@
 
 class MEC : public Engine::State {
 
-    private:
+    protected:
     std::shared_ptr<Context> m_context;
     sf::Sprite m_backgroundSprite;
     sf::Text m_gamecontext;

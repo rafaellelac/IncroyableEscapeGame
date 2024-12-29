@@ -4,14 +4,16 @@
 #include <memory>
 #include <SFML/Graphics.hpp>  
 
-class MECMaze : public MEC {
+class MECPuzzle : public MEC {
 
     private:
-    sf::Text m_mazecontext;
+    sf::Text m_congrats;
+    sf::Text m_puzzlecontext;
+    sf::Text m_mazehint;
  
     
     public:
-        MECMaze(std::shared_ptr<Context> &context);
+        MECPuzzle(std::shared_ptr<Context> &context);
         void Init() override;
         void ProcessInput() override;
         void Update(sf::Time deltaTime) override;
