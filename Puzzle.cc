@@ -1,7 +1,7 @@
 #include "Puzzle.hh"
 #include <SFML/Graphics.hpp>
 #include "asset.hh"
-#include "MECPuzzle.hh"
+#include "MECQuizz.hh"
 #include <iostream>
 
 
@@ -35,10 +35,7 @@ Puzzle::~Puzzle() {
 void Puzzle::Init() {
 
     // Load the puzzle texture
-    if (!m_texture.loadFromFile("ASSETS/puzzle.png")) {
-        std::cerr << "Failed to load texture" << std::endl;
-        return;
-    }
+   m_context->m_assets->AddTexture(PUZZLE, "ASSETS/puzzle.png" );
     
     //Seed the random number generator
     std::srand(std::time(nullptr));
@@ -49,7 +46,7 @@ void Puzzle::Init() {
     for (size_t i = 0; i < 4; ++i) {
         for (size_t j = 0; j < 4; ++j) {
                 ++n;
-                m_sprite[n].setTexture(m_texture);
+                m_sprite[n].setTexture(m_context->m_assets->GetTexture(PUZZLE));
                 m_sprite[n].setTextureRect(sf::IntRect(i * w, j * w, w, w));
                 m_grid[i + 1][j + 1] = m_nums[n - 1];
         }
@@ -119,7 +116,7 @@ void Puzzle::Draw() {
         if (isCompleted()){
             m_window->close();
             m_context->m_states->PopCurrent(); 
-            m_context->m_states->Add(std::make_unique<MECPuzzle>(m_context));
+            m_context->m_states->Add(std::make_unique<MECQuizz>(m_context));
         }
     }
 }

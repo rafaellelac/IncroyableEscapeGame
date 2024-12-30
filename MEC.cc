@@ -8,6 +8,7 @@ MEC::MEC(std::shared_ptr<Context> &context) : m_context(context) {}
 
 void MEC::Init(){
 
+    m_context->m_assets->AddFont(FONT2, "ASSETS/newseptember.otf" );
     m_context->m_assets->AddFont(COMPUTER_FONT, "ASSETS/computer.ttf" );
     m_context->m_assets->AddTexture(CLASSROOM, "ASSETS/classroom.jpg" );
 
@@ -19,12 +20,12 @@ void MEC::Init(){
     );
 
     //Context Text
-    m_gamecontext.setFont(m_context->m_assets->GetFont(MAIN_FONT));
+    m_gamecontext.setFont(m_context->m_assets->GetFont(FONT2));
     m_gamecontext.setFillColor(sf::Color::Black);
     m_gamecontext.setOutlineColor(sf::Color::White);
-    m_gamecontext.setOutlineThickness(2);
-    m_gamecontext.setCharacterSize(35);
-    m_gamecontext.setString("Vous vous etes endormi en TP de C++.\nLorsque vous vous reveillez, la salle est vide \net la porte est fermee a cle. \nVous devez trouver un moyen de sortir de la salle \navant que le professeur ne revienne. \nPour cela, vous devez reussir a ouvrir la porte \nen resolvant des enigmes.\nBonne chance !");
+    m_gamecontext.setOutlineThickness(1);
+    m_gamecontext.setCharacterSize(40);
+    m_gamecontext.setString("Vous vous etes endormi en TP. Lorsque vous vous reveillez, la salle est vide \net la porte est fermee a cle. \n\nVous devez trouver un moyen de sortir de la salle avant que le professeur ne revienne. \nPour cela, vous devez reussir a ouvrir la porte en resolvant des enigmes.\n\nBonne chance !");
     m_gamecontext.setOrigin(
         m_gamecontext.getLocalBounds().width / 2, 
         m_gamecontext.getLocalBounds().height / 2

@@ -1,12 +1,13 @@
-#include "MECPuzzle.hh"
+#include "MECQuizz.hh"
 #include <memory>
 #include "MazeGame.hh"
-#include "Puzzle.hh"
-
-MECPuzzle::MECPuzzle(std::shared_ptr<Context> &context) : MEC(context) {}
+#include "Quizz.hh"
 
 
-void MECPuzzle::Init(){
+MECQuizz::MECQuizz(std::shared_ptr<Context> &context) : MEC(context) {}
+
+
+void MECQuizz::Init(){
 
 
     m_context->m_assets->AddTexture(COMPUTER_SCREEN, "ASSETS/computerscreen.jpg" );
@@ -19,38 +20,38 @@ void MECPuzzle::Init(){
     );
 
     //Context Text
-    m_puzzlecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
-    m_puzzlecontext.setFillColor(sf::Color::Black);
-    m_puzzlecontext.setCharacterSize(30);
-    m_puzzlecontext.setString("Maintenant, faites coulisser les nombres pour les \nremettre dans l'ordre croissant.\nde gauche a droite, le 1 en haut a gauche!");
-    m_puzzlecontext.setOrigin(
-        m_puzzlecontext.getLocalBounds().width / 2, 
-        m_puzzlecontext.getLocalBounds().height / 2
+    m_quizzcontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
+    m_quizzcontext.setFillColor(sf::Color::Black);
+    m_quizzcontext.setCharacterSize(30);
+    m_quizzcontext.setString("C'est l'heure de verifier si vous etes attentifs! \nRepondez aux questions suivantes \ndans le temps imparti. \n\nAttention, a la moindre erreur il faudra \nrecommencer!\nLe chrono tourne... Bonne chance!");
+    m_quizzcontext.setOrigin(
+        m_quizzcontext.getLocalBounds().width / 2, 
+        m_quizzcontext.getLocalBounds().height / 2
     );
-    m_puzzlecontext.setPosition(
+    m_quizzcontext.setPosition(
         m_context->m_window->getSize().x/2,
         m_context->m_window->getSize().y/2 + 150
     );
 
     //Hint text
-    m_mazehint.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
-    m_mazehint.setFillColor(sf::Color::Red);
-    m_mazehint.setCharacterSize(35);
-    m_mazehint.setString("Indice: blablabla");
-    m_mazehint.setOrigin(
-        m_mazehint.getLocalBounds().width / 2, 
-        m_mazehint.getLocalBounds().height / 2 
+    m_puzzlehint.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
+    m_puzzlehint.setFillColor(sf::Color::Red);
+    m_puzzlehint.setCharacterSize(35);
+    m_puzzlehint.setString("Indice 2: blablabla");
+    m_puzzlehint.setOrigin(
+        m_puzzlehint.getLocalBounds().width / 2, 
+        m_puzzlehint.getLocalBounds().height / 2 
     );
-    m_mazehint.setPosition(
+    m_puzzlehint.setPosition(
         m_context->m_window->getSize().x/2,
-        m_context->m_window->getSize().y/2 - 50
+        m_context->m_window->getSize().y/2 - 100
     );
 
     //Congrats Text
     m_congrats.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_congrats.setFillColor(sf::Color::Black);
     m_congrats.setCharacterSize(35);
-    m_congrats.setString("Bravo! Vous avez reussi!");
+    m_congrats.setString("Pas mal! Mais vous n'etes qu'a mi-chemin \net le temps presse");
     m_congrats.setOrigin(
         m_congrats.getLocalBounds().width / 2, 
         m_congrats.getLocalBounds().height / 2 
@@ -66,7 +67,7 @@ void MECPuzzle::Init(){
     m_next.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_next.setFillColor(sf::Color::Blue);
     m_next.setCharacterSize(20);
-    m_next.setString("Appuyer sur ENTRER pour acceder au puzzle");
+    m_next.setString("Appuyer sur ENTRER pour acceder au quizz");
     m_next.setOrigin(
         m_next.getLocalBounds().width, 
         m_next.getLocalBounds().height
@@ -79,7 +80,7 @@ void MECPuzzle::Init(){
 }
 
 
-void MECPuzzle::ProcessInput(){
+void MECQuizz::ProcessInput(){
     sf::Event event;
     while (m_context->m_window->pollEvent(event))
     {
@@ -94,7 +95,7 @@ void MECPuzzle::ProcessInput(){
                     break;
                 case sf::Keyboard::Return:
                     {
-                   m_context->m_states->Add(std::make_unique<Puzzle>(m_context));
+                   m_context->m_states->Add(std::make_unique<Quizz>(m_context));
                     }
                     break;
                 default:
@@ -104,15 +105,13 @@ void MECPuzzle::ProcessInput(){
     }
 }
 
-
-void MECPuzzle::Update(sf::Time deltaTime) {}
-        
-        
-void MECPuzzle::Draw() {
+void MECQuizz::Update(sf::Time deltaTime) {}
+      
+void MECQuizz::Draw() {
     m_context->m_window->clear();
     m_context->m_window->draw(m_backgroundSprite);
-    m_context->m_window->draw(m_puzzlecontext);
-    m_context->m_window->draw(m_mazehint);
+    m_context->m_window->draw(m_quizzcontext);
+    m_context->m_window->draw(m_puzzlehint);
     m_context->m_window->draw(m_congrats);   
     m_context->m_window->draw(m_next);
     m_context->m_window->display();

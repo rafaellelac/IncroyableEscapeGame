@@ -10,6 +10,7 @@
 enum AssetID
 {
     MAIN_FONT = 0,
+    FONT2,
     BACKGROUND1,
     COMPUTER_FONT,
     MAZE,
@@ -17,6 +18,8 @@ enum AssetID
     CLASSROOM,
     COMPUTER_SCREEN,
     PUZZLE,
+    TIMER,
+    TIMER_FONT,
 };
 
 struct Context{

@@ -4,18 +4,17 @@
 #include <memory>
 #include <SFML/Graphics.hpp>  
 
-class MECQuizz : public MEC {
+class MECEnigme : public MEC {
 
     private:
     sf::Text m_congrats;
-    sf::Text m_quizzcontext;
-    sf::Text m_puzzlehint;
+    sf::Text m_enigmecontext;
+    sf::Text m_quizzhint;
  
     
     public:
-        MECQuizz(std::shared_ptr<Context> &context);
+        MECEnigme(std::shared_ptr<Context> &context);
         void Init() override;
         void ProcessInput() override;
-        void Update(sf::Time deltaTime) override;
         void Draw() override;
 };
