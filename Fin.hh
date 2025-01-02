@@ -15,6 +15,7 @@ class Fin : public Engine::State {
     static int m_score;
     std::string m_playerInput;
     sf::Text m_playerText;
+    sf::Clock m_clock;
 
     public:
         Fin(std::shared_ptr<Context> &context);
