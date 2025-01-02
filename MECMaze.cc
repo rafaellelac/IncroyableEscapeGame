@@ -65,7 +65,7 @@ void MECMaze::ProcessInput(){
                     break;
                 case sf::Keyboard::Return:
                     {
-                   m_context->m_states->Add(std::make_unique<MazeGame>(m_context));
+                   m_context->m_states->Add(std::make_unique<Enigme>(m_context));
                     }
                     break;
                 default:

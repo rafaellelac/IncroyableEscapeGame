@@ -35,7 +35,7 @@ private:
     std::array<sf::Texture, 5> boissonTextures;
     std::array<sf::Texture, 5> animalTextures;
 
-    std::array<Cell, 5> grid;
+    std::array<Cell, 3> grid;
     bool isDragging;
     sf::Sprite* currentDraggable;
     sf::Vector2i dragOffset;

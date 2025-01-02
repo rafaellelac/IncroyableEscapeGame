@@ -130,10 +130,8 @@ void Enigme::ProcessInput() {
             // Check if the "Check Answer" button was clicked
             if (m_answerBox.getGlobalBounds().contains(m_window.mapPixelToCoords(mousePos))) {
                 if (m_playerInput == "incroyables") {
-                    std::cout << "Solution found!" << std::endl;
                     iscompleted = true;
                 } else {
-                    std::cout << "Incorrect answer, try again!" << std::endl;
                     m_playerInput.clear();  // Clear the input for the next attempt
                 }
             }
@@ -201,12 +199,8 @@ void Enigme::Update(sf::Time deltaTime) {
 void Enigme::Draw() {
     while (m_window.isOpen()) {
         ProcessInput();
-        if (iscompleted) {
-            m_window.close();
-            m_context->m_states->PopCurrent(); 
-            //add next state
-        } 
-
+        Update(sf::seconds(0.1f));
+        
         m_window.clear(sf::Color::White); // Default white background
         for (int i = 0; i < 3; ++i) {
             m_window.draw(grid[i].maison);
@@ -223,6 +217,12 @@ void Enigme::Draw() {
         m_window.draw(m_phraseText);
         m_window.display();
 
+        if (iscompleted) {
+            m_window.close();
+            m_context->m_states->PopCurrent(); 
+            //add next state
+        } 
+
         if (!iscompleted){
             Update(sf::seconds(0.1f));
         }
@@ -232,16 +232,5 @@ void Enigme::Draw() {
 bool Enigme::isCompleted() const {
     return iscompleted;
 }
-
-
-
-/*void EinsteinPuzzle::run() {
-
-        if (!solutionFound) {
-            update();
-        }
-        draw();
-    }
-}*/
 
 

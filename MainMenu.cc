@@ -3,6 +3,7 @@
 #include "asset.hh"
 #include "game.hh"
 #include "MEC.hh"
+#include "Scores.hh"
 
         
 MainMenu::MainMenu(std::shared_ptr<Context> &context):
@@ -175,7 +176,7 @@ void MainMenu::Update(sf::Time deltaTime) {
         isPlayButtonPressed = false;
     }
     if(isScoresButtonPressed) {
-        //scoresstate
+        m_context->m_states->Add(std::make_unique<Scores>(m_context));
         isScoresButtonPressed = false;
     }
     if(isExitButtonPressed){

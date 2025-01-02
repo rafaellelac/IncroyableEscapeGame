@@ -21,6 +21,9 @@ enum AssetID
     TIMER,
     TIMER_FONT,
     ENIGME,
+    BOARD,
+    BOARD_FONT,
+    HALLWAY,
 };
 
 struct Context{
