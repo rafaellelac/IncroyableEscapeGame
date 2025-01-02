@@ -172,6 +172,7 @@ void MainMenu::Update(sf::Time deltaTime) {
         m_exitButton.setFillColor(sf::Color::Red);
     }
     if(isPlayButtonPressed) {
+        m_context->m_timer->restart();
         m_context->m_states->Add(std::make_unique<MEC>(m_context));
         isPlayButtonPressed = false;
     }
