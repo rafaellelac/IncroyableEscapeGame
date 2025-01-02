@@ -2,6 +2,7 @@
 #include "Classroom.hh"
 #include <memory>
 #include "game.hh"
+#include "Fin.hh"
 
 
 
@@ -107,8 +108,7 @@ void Door::ProcessInput(){
                 case sf::Keyboard::Return:
                     {
                     if (m_playerInput == "MAIN4CPP") {
-                        m_context->m_states->PopCurrent();
-                        //add congratulations state
+                        m_context->m_states->Add(std::make_unique<Fin>(m_context));
                     } 
                     else {
                         m_playerInput.clear();  // Clear the input for the next attempt

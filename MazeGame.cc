@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "asset.hh"
 #include "MECPuzzle.hh"
+#include <cmath>
 
 // Overload the division operator for sf::Vector2f
 sf::Vector2f operator/(const sf::Vector2f& vec, const sf::Vector2f& divisor) {
@@ -74,16 +75,16 @@ bool MazeGame::isPixelBlack(const sf::Vector2f& position) {
 void MazeGame::ProcessInput() {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-        movement.y -= 100.0f ;
+        movement.y -= 50.0f ;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-        movement.y += 100.0f ;
+        movement.y += 50.0f ;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        movement.x -= 100.0f;
+        movement.x -= 50.0f;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        movement.x += 100.0f;
+        movement.x += 50.0f;
     }
 
 }
