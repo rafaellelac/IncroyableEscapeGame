@@ -15,6 +15,7 @@ class MainMenu : public Engine::State{
         sf::Text m_playButton;
         sf::Text m_scoresButton;
         sf::Text m_exitButton;
+        sf::Clock m_clock;
 
         bool isPlayButtonSelected;
         bool isPlayButtonPressed;
