@@ -129,7 +129,9 @@ void Quizz::ResetGame(){
 void Quizz::AddQuestions(){
     m_questions.push_back({"Quelle est la capitale de l'Allemagne ?", {"Munich", "Berlin"}, 1});
     m_questions.push_back({"Quelle est la couleur de la case 1 du puzzle", {"Bleu", "Rouge", "Vert"}, 0});
-    m_questions.push_back({"Quel est le chiffre en haut à droite du labyrinthe ?", {"1","5","9"}, 2});
-    m_questions.push_back({"Les micro-ondes de la tour 66 sont à quel étage?", {"-1", "5","6"}, 1});
+    m_questions.push_back({"Si dans une course tu doubles le deuxieme, tu es?", {"Premier", "Deuxieme", "Dernier"}, 1});
+    m_questions.push_back({"Quel est le chiffre en haut a droite du labyrinthe ?", {"1","5","9"}, 2});
+    m_questions.push_back({"Combien y a-t-il d'arondissements a Paris?",{"21","18","20"}, 2});
+    m_questions.push_back({"Les micro-ondes de la tour 66 sont a quel etage?", {"-1", "5","6"}, 1});
     m_questions.push_back({"Est-ce que ce jeu est incroyable?", {"oui","OUI!!"}, 1});
 }

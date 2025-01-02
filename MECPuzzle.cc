@@ -36,7 +36,7 @@ void MECPuzzle::Init(){
     m_mazehint.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_mazehint.setFillColor(sf::Color::Red);
     m_mazehint.setCharacterSize(35);
-    m_mazehint.setString("Indice: blablabla");
+    m_mazehint.setString("Indice: Josephine Baker n'aime pas le cafe \net habite en dessous de celle qui a un poisson");
     m_mazehint.setOrigin(
         m_mazehint.getLocalBounds().width / 2, 
         m_mazehint.getLocalBounds().height / 2 

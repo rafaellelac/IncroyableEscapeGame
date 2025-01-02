@@ -22,8 +22,8 @@ void MECQuizz::Init(){
     //Context Text
     m_quizzcontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_quizzcontext.setFillColor(sf::Color::Black);
-    m_quizzcontext.setCharacterSize(30);
-    m_quizzcontext.setString("C'est l'heure de verifier si vous etes attentifs! \nRepondez aux questions suivantes \ndans le temps imparti. \n\nAttention, a la moindre erreur il faudra \nrecommencer!\nLe chrono tourne... Bonne chance!");
+    m_quizzcontext.setCharacterSize(27);
+    m_quizzcontext.setString("C'est l'heure de verifier si vous etes attentifs! \nRepondez aux questions suivantes \ndans le temps imparti. \n\nAttention, a la moindre erreur il faudra \nrecommencer!\nLe chrono tourne... Bonne chance!\n\nP.S:Utilisez les touches A/B/C pour repondre");
     m_quizzcontext.setOrigin(
         m_quizzcontext.getLocalBounds().width / 2, 
         m_quizzcontext.getLocalBounds().height / 2
@@ -37,7 +37,7 @@ void MECQuizz::Init(){
     m_puzzlehint.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_puzzlehint.setFillColor(sf::Color::Red);
     m_puzzlehint.setCharacterSize(35);
-    m_puzzlehint.setString("Indice 2: blablabla");
+    m_puzzlehint.setString("Indice 2: Marie Curie habite au dessus de la \nmaison verte et boit du the");
     m_puzzlehint.setOrigin(
         m_puzzlehint.getLocalBounds().width / 2, 
         m_puzzlehint.getLocalBounds().height / 2 
@@ -50,7 +50,7 @@ void MECQuizz::Init(){
     //Congrats Text
     m_congrats.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_congrats.setFillColor(sf::Color::Black);
-    m_congrats.setCharacterSize(35);
+    m_congrats.setCharacterSize(30);
     m_congrats.setString("Pas mal! Mais vous n'etes qu'a mi-chemin \net le temps presse");
     m_congrats.setOrigin(
         m_congrats.getLocalBounds().width / 2, 

@@ -1,7 +1,7 @@
 #include "MECEnigme.hh"
 #include <memory>
 #include "MazeGame.hh"
-//#include "Enigme.hh"
+#include "Enigme.hh"
 
 
 MECEnigme::MECEnigme(std::shared_ptr<Context> &context) : MEC(context) {}
@@ -21,8 +21,8 @@ void MECEnigme::Init(){
     //Context Text
     m_enigmecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_enigmecontext.setFillColor(sf::Color::Black);
-    m_enigmecontext.setCharacterSize(30);
-    m_enigmecontext.setString("J'espere que tu connais l'enigme d'einstein \nparce qu'il faut maintenant en resoudre une variante \nsur des femmes incroyables!\n\n reste de l'explication");
+    m_enigmecontext.setCharacterSize(24);
+    m_enigmecontext.setString("J'espere que tu connais\n l'enigme d'einstein parce qu'il\n faut maintenant en resoudre\n une variante sur des femmes incroyables!\n\nTu peux bouger les images\npour trouver les bonnes combinaisons.\nUne fois sur(e) des combinaisons,\nreponds a la question en dessous\n et valide la reponse\n\nBonne chance!");
     m_enigmecontext.setOrigin(
         m_enigmecontext.getLocalBounds().width / 2, 
         m_enigmecontext.getLocalBounds().height / 2
@@ -36,7 +36,7 @@ void MECEnigme::Init(){
     m_quizzhint.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_quizzhint.setFillColor(sf::Color::Red);
     m_quizzhint.setCharacterSize(35);
-    m_quizzhint.setString("Indice 3: blablabla");
+    m_quizzhint.setString("Indice 3: Le chat habite la maison rouge\n en haut de la rue");
     m_quizzhint.setOrigin(
         m_quizzhint.getLocalBounds().width / 2, 
         m_quizzhint.getLocalBounds().height / 2 
@@ -94,7 +94,7 @@ void MECEnigme::ProcessInput(){
                     break;
                 case sf::Keyboard::Return:
                     {
-                  // add enigme state here
+                    m_context->m_states->Add(std::make_unique<Enigme>(m_context));
                     }
                     break;
                 default:

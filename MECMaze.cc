@@ -23,7 +23,7 @@ void MECMaze::Init(){
     m_mazecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_mazecontext.setFillColor(sf::Color::Black);
     m_mazecontext.setCharacterSize(35);
-    m_mazecontext.setString("Bienvenue \n\nAide Naomi Parker a sortir du labyrinthe,\nyou can do it!\nPour cela, utilisez les fleches \ndirectionnelles de votre clavier.\n\nAttention, chaque detail compte, \nprenez des notes!");
+    m_mazecontext.setString("Bienvenue \n\nAidez Naomi Parker a sortir du labyrinthe,\nyou can do it!\nPour cela, utilisez les fleches \ndirectionnelles de votre clavier.\n\nAttention, chaque detail compte, \nprenez des notes!");
     m_mazecontext.setOrigin(
         m_mazecontext.getLocalBounds().width / 2, 
         m_mazecontext.getLocalBounds().height / 2
@@ -65,7 +65,7 @@ void MECMaze::ProcessInput(){
                     break;
                 case sf::Keyboard::Return:
                     {
-                   m_context->m_states->Add(std::make_unique<Enigme>(m_context));
+                   m_context->m_states->Add(std::make_unique<MazeGame>(m_context));
                     }
                     break;
                 default:

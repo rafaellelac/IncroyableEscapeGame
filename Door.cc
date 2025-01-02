@@ -11,10 +11,10 @@ Door::Door(std::shared_ptr<Context> &context) : m_context(context) {}
 
 void Door::Init(){
     m_context->m_assets->AddFont(FONT2, "ASSETS/newseptember.otf" );
-    m_context->m_assets->AddTexture(COMPUTER_SCREEN, "ASSETS/computerscreen.jpg" );
+    m_context->m_assets->AddTexture(DOOR, "ASSETS/closeddoor.jpg" );
     
     //Background
-    m_backgroundSprite.setTexture(m_context->m_assets->GetTexture(COMPUTER_SCREEN));
+    m_backgroundSprite.setTexture(m_context->m_assets->GetTexture(DOOR));
     m_backgroundSprite.setScale(
         m_context->m_window->getSize().x / m_backgroundSprite.getLocalBounds().width,
         m_context->m_window->getSize().y / m_backgroundSprite.getLocalBounds().height
@@ -33,7 +33,7 @@ void Door::Init(){
     );
     m_text.setPosition(
         m_context->m_window->getSize().x/2,
-        m_context->m_window->getSize().y/2 - 200
+        m_context->m_window->getSize().y/2 - 100
     );
 
     // Input box
@@ -57,6 +57,8 @@ void Door::Init(){
     // Check Text
     m_check.setFont(m_context->m_assets->GetFont(FONT2));
     m_check.setFillColor(sf::Color::Black);
+    m_check.setOutlineColor(sf::Color::White);
+    m_check.setOutlineThickness(1);
     m_check.setString("Appuyer Entrer pour valider");
     m_check.setCharacterSize(40);
     m_check.setOrigin(

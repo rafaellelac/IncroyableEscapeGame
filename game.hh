@@ -25,6 +25,7 @@ enum AssetID
     BOARD,
     BOARD_FONT,
     HALLWAY,
+    DOOR,
 };
 
 struct Context{

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include "game.hh"
+#include "LastScreen.hh"
 
 Enigme::Enigme(std::shared_ptr<Context> &context) : 
     m_context(context), 
@@ -110,9 +111,9 @@ void Enigme::Init() {
     m_inputText.setFillColor(sf::Color::Black);
 
     m_phraseText.setFont(m_context->m_assets->GetFont(ENIGME));
-    m_phraseText.setString("Ces femmes sont :");
+    m_phraseText.setString("Quelle est la couleur de la maison de Marie Curie?");
     m_phraseText.setCharacterSize(20);
-    m_phraseText.setPosition(160, 400); // Position above the answer box
+    m_phraseText.setPosition(80, 400); // Position above the answer box
     m_phraseText.setFillColor(sf::Color::Black);
 
 
@@ -129,7 +130,7 @@ void Enigme::ProcessInput() {
             
             // Check if the "Check Answer" button was clicked
             if (m_answerBox.getGlobalBounds().contains(m_window.mapPixelToCoords(mousePos))) {
-                if (m_playerInput == "incroyables") {
+                if (m_playerInput == "bleu") {
                     iscompleted = true;
                 } else {
                     m_playerInput.clear();  // Clear the input for the next attempt
@@ -220,7 +221,7 @@ void Enigme::Draw() {
         if (iscompleted) {
             m_window.close();
             m_context->m_states->PopCurrent(); 
-            //add next state
+            m_context->m_states->Add(std::make_unique<LastScreen>(m_context));
         } 
 
         if (!iscompleted){
