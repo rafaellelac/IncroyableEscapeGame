@@ -22,7 +22,7 @@ void MECEnigme::Init(){
     m_enigmecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_enigmecontext.setFillColor(sf::Color::Black);
     m_enigmecontext.setCharacterSize(30);
-    m_enigmecontext.setString("C'est l'heure de verifier si vous etes attentifs! \nRepondez aux questions suivantes \ndans le temps imparti. \n\nAttention, a la moindre erreur il faudra \nrecommencer!\nLe chrono tourne... Bonne chance!");
+    m_enigmecontext.setString("J'espere que tu connais l'enigme d'einstein \nparce qu'il faut maintenant en resoudre une variante \nsur des femmes incroyables!\n\n reste de l'explication");
     m_enigmecontext.setOrigin(
         m_enigmecontext.getLocalBounds().width / 2, 
         m_enigmecontext.getLocalBounds().height / 2
@@ -36,7 +36,7 @@ void MECEnigme::Init(){
     m_quizzhint.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_quizzhint.setFillColor(sf::Color::Red);
     m_quizzhint.setCharacterSize(35);
-    m_quizzhint.setString("Indice 2: blablabla");
+    m_quizzhint.setString("Indice 3: blablabla");
     m_quizzhint.setOrigin(
         m_quizzhint.getLocalBounds().width / 2, 
         m_quizzhint.getLocalBounds().height / 2 
@@ -50,7 +50,7 @@ void MECEnigme::Init(){
     m_congrats.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_congrats.setFillColor(sf::Color::Black);
     m_congrats.setCharacterSize(35);
-    m_congrats.setString("Pas mal! Mais vous n'etes qu'a mi-chemin \net le temps presse");
+    m_congrats.setString("Voici le dernier indice!");
     m_congrats.setOrigin(
         m_congrats.getLocalBounds().width / 2, 
         m_congrats.getLocalBounds().height / 2 
@@ -66,7 +66,7 @@ void MECEnigme::Init(){
     m_next.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_next.setFillColor(sf::Color::Blue);
     m_next.setCharacterSize(20);
-    m_next.setString("Appuyer sur ENTRER pour acceder au quizz");
+    m_next.setString("Appuyer sur ENTRER pour acceder a l'enigme");
     m_next.setOrigin(
         m_next.getLocalBounds().width, 
         m_next.getLocalBounds().height

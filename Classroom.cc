@@ -5,6 +5,7 @@
 #include "Classroom.hh"
 #include "MECMaze.hh"
 #include "HS.hh"
+#include "Door.hh"
 
 Classroom::Classroom(std::shared_ptr<Context> &context): 
         m_context(context), 
@@ -161,9 +162,9 @@ void Classroom::ProcessInput(){
                 if (isComputer4Selected){
                     isComputer4Pressed = true;
                 }
-                /*if (isDoorSelected) {
+                if (isDoorSelected) {
                     isDoorPressed = true;
-                }*/
+                }
             }
         }
     }
@@ -175,10 +176,10 @@ void Classroom::Update(sf::Time deltaTime) {
         m_context->m_states->Add(std::make_unique<MECMaze>(m_context));
         isComputerPressed = false;
     }
-    /*if (isDoorPressed) {
-        m_context->m_states->Add(std::make_unique<MainMenu>(m_context));
+    if (isDoorPressed) {
+        m_context->m_states->Add(std::make_unique<Door>(m_context));
         isDoorPressed = false;
-    }*/
+    }
    if (isComputer2Pressed){
         m_context->m_states->Add(std::make_unique<HS>(m_context));
         isComputer2Pressed = false;
