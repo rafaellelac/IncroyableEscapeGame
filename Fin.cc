@@ -40,6 +40,14 @@ void Fin::Init(){
         m_context->m_window->getSize().y/2 - 200
     );
 
+    sf::Time time = m_context->m_timer->getElapsedTime();
+    int minutes = static_cast<int>(time.asSeconds()) / 60;
+    int seconds = static_cast<int>(time.asSeconds()) % 60;
+    
+    std::ostringstream timeStream;
+    timeStream << "Vous avez reussi en " << minutes << " minutes et " << seconds << " secondes!";
+    m_congrats.setString(timeStream.str());
+
     //Time and Score Text
     m_time.setFont(m_context->m_assets->GetFont(FONT2));
     m_time.setFillColor(sf::Color::Black);
