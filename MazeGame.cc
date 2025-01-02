@@ -93,7 +93,7 @@ void MazeGame::Update(sf::Time deltaTime) {
     // Reset movement to zero after applying it
     movement = {0.0f, 0.0f};
     // Calculate the new position
-    scaledMovement *= 0.5f; // Reduce the movement speed by half
+    scaledMovement *= 0.25f; // Reduce the movement speed by a quarter
     sf::Vector2f newPosition = playerPosition + scaledMovement;
 
     // Check for collision with the maze

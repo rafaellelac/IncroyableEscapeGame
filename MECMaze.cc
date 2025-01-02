@@ -22,8 +22,6 @@ void MECMaze::Init(){
     //Context Text
     m_mazecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
     m_mazecontext.setFillColor(sf::Color::Black);
-    //m_mazecontext.setOutlineColor(sf::Color::White);
-    //m_mazecontext.setOutlineThickness(2);
     m_mazecontext.setCharacterSize(35);
     m_mazecontext.setString("Bienvenue \n\nAide Naomi Parker a sortir du labyrinthe,\nyou can do it!\nPour cela, utilisez les fleches \ndirectionnelles de votre clavier.\n\nAttention, chaque detail compte, \nprenez des notes!");
     m_mazecontext.setOrigin(
