@@ -1,9 +1,7 @@
 #include "Door.hh"
 #include "Classroom.hh"
-#include <memory>
-#include "game.hh"
 #include "Fin.hh"
-
+#include "game.hh"
 
 
 Door::Door(std::shared_ptr<Context> &context) : m_context(context) {}
@@ -72,7 +70,7 @@ void Door::Init(){
 
     // Wrong X
     m_wrong.setFont(m_context->m_assets->GetFont(FONT2));
-    m_wrong.setFillColor(sf::Color::Transparent);
+    m_wrong.setFillColor(sf::Color::Transparent); //Pour l'instant le X est transparent, il sera rouge seulement si le code entre est faux
     m_wrong.setString("X");
     m_wrong.setCharacterSize(40);
     m_wrong.setOrigin(
@@ -110,11 +108,11 @@ void Door::ProcessInput(){
                 case sf::Keyboard::Return:
                     {
                     if (m_playerInput == "MAIN4CPP") {
-                        m_context->m_states->Add(std::make_unique<Fin>(m_context));
+                        m_context->m_states->Add(std::make_unique<Fin>(m_context)); // si le code entre est le bon, on passe a la fenetre de fin
                     } 
                     else {
-                        m_playerInput.clear();  // Clear the input for the next attempt
-                        m_wrong.setFillColor(sf::Color::Red);
+                        m_playerInput.clear();  // A chaque fois qu'un code est faux, on efface le champ pour le prochain essai
+                        m_wrong.setFillColor(sf::Color::Red); // le X est visible tres brievement
                     }
                 }
                 default:
@@ -122,17 +120,16 @@ void Door::ProcessInput(){
             }
         }
         else if (event.type == sf::Event::TextEntered) {
-            // Handle text input (typing the solution)
-            if (event.text.unicode < 128) {  // Ignore non-ASCII characters
-                if (event.text.unicode == 8 && !m_playerInput.empty()) { // Backspace
+            if (event.text.unicode < 128) {  // on ignore les caracteres non ASCII
+                if (event.text.unicode == 8 && !m_playerInput.empty()) { // si RETOUR est appuye, on efface le dernier caractere
                     m_playerInput.pop_back();
-                } else if (event.text.unicode != 8) {  // Regular character
+                } else if (event.text.unicode != 8) {  // sinon, on rajoute le caractere et on efface le X si il est rouge
                     m_wrong.setFillColor(sf::Color::Transparent);
                     m_playerInput += static_cast<char>(event.text.unicode);
                 }
             }
         }
-        m_inputText.setString(m_playerInput); // Update the input text
+        m_inputText.setString(m_playerInput); // on update le champ d'entree a chaque fois qu'un caractere est entre
             break;
     }
 }

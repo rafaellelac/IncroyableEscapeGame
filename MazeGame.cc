@@ -1,8 +1,8 @@
 #include "MazeGame.hh"
+#include "MECPuzzle.hh"
+#include "asset.hh"
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "asset.hh"
-#include "MECPuzzle.hh"
 #include <cmath>
 
 // Overload the division operator for sf::Vector2f

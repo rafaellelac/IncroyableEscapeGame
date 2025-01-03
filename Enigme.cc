@@ -1,8 +1,9 @@
 #include "Enigme.hh"
+#include "LastScreen.hh"
+#include "game.hh"
 #include <iostream>
 #include <algorithm>
-#include "game.hh"
-#include "LastScreen.hh"
+
 
 Enigme::Enigme(std::shared_ptr<Context> &context) : 
     m_context(context), 

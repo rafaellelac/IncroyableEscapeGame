@@ -1,11 +1,11 @@
 #include "MainMenu.hh"
-#include <SFML/Window/Event.hpp>
-#include "asset.hh"
-#include "game.hh"
 #include "MEC.hh"
 #include "Scores.hh"
+#include "asset.hh"
+#include "game.hh"
+#include <SFML/Window/Event.hpp>
 
-        
+
 MainMenu::MainMenu(std::shared_ptr<Context> &context):
 m_context(context),
 isPlayButtonSelected(true),isPlayButtonPressed(false),

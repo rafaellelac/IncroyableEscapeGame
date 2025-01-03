@@ -1,11 +1,11 @@
+#include "Classroom.hh"
 #include "MainMenu.hh"
-#include <SFML/Window/Event.hpp>
 #include "asset.hh"
 #include "game.hh"
-#include "Classroom.hh"
 #include "MECMaze.hh"
 #include "HS.hh"
 #include "Door.hh"
+#include <SFML/Window/Event.hpp>
 
 Classroom::Classroom(std::shared_ptr<Context> &context): 
         m_context(context), 
@@ -112,6 +112,7 @@ void Classroom::ProcessInput(){
             m_context->m_window->close();
         else if (event.type == sf::Event::MouseMoved) {
             sf::Vector2i mousePos = sf::Mouse::getPosition(*m_context->m_window);
+        //Les boutons ne se voient que si la souris est positionee dessus, sinon ils restent transparents
             if (m_computerButton.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
                 m_computerButton.setFillColor(sf::Color::Red);
                 isComputerSelected = true;

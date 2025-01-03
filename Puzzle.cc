@@ -1,7 +1,6 @@
 #include "Puzzle.hh"
-#include <SFML/Graphics.hpp>
-#include "asset.hh"
 #include "MECQuizz.hh"
+#include <SFML/Graphics.hpp>
 #include <iostream>
 
 

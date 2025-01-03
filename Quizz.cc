@@ -1,8 +1,8 @@
 #include "Quizz.hh"
-#include <SFML/Graphics.hpp>
-#include "asset.hh"
-#include <iostream>
 #include "MECEnigme.hh"
+#include <SFML/Graphics.hpp>
+#include <iostream>
+
 
 Quizz::Quizz(std::shared_ptr<Context> &context) : 
     m_context(context), 

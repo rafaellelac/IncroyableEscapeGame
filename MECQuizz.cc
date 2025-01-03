@@ -1,6 +1,4 @@
 #include "MECQuizz.hh"
-#include <memory>
-#include "MazeGame.hh"
 #include "Quizz.hh"
 
 
@@ -20,15 +18,15 @@ void MECQuizz::Init(){
     );
 
     //Context Text
-    m_quizzcontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
-    m_quizzcontext.setFillColor(sf::Color::Black);
-    m_quizzcontext.setCharacterSize(27);
-    m_quizzcontext.setString("C'est l'heure de verifier si vous etes attentifs! \nRepondez aux questions suivantes \ndans le temps imparti. \n\nAttention, a la moindre erreur il faudra \nrecommencer!\nLe chrono tourne... Bonne chance!\n\nP.S:Utilisez les touches A/B/C pour repondre");
-    m_quizzcontext.setOrigin(
-        m_quizzcontext.getLocalBounds().width / 2, 
-        m_quizzcontext.getLocalBounds().height / 2
+    m_gamecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
+    m_gamecontext.setFillColor(sf::Color::Black);
+    m_gamecontext.setCharacterSize(27);
+    m_gamecontext.setString("C'est l'heure de verifier si vous etes attentifs! \nRepondez aux questions suivantes \ndans le temps imparti. \n\nAttention, a la moindre erreur il faudra \nrecommencer!\nLe chrono tourne... Bonne chance!\n\nP.S:Utilisez les touches A/B/C pour repondre");
+    m_gamecontext.setOrigin(
+        m_gamecontext.getLocalBounds().width / 2, 
+        m_gamecontext.getLocalBounds().height / 2
     );
-    m_quizzcontext.setPosition(
+    m_gamecontext.setPosition(
         m_context->m_window->getSize().x/2,
         m_context->m_window->getSize().y/2 + 150
     );
@@ -110,7 +108,7 @@ void MECQuizz::Update(sf::Time deltaTime) {}
 void MECQuizz::Draw() {
     m_context->m_window->clear();
     m_context->m_window->draw(m_backgroundSprite);
-    m_context->m_window->draw(m_quizzcontext);
+    m_context->m_window->draw(m_gamecontext);
     m_context->m_window->draw(m_puzzlehint);
     m_context->m_window->draw(m_congrats);   
     m_context->m_window->draw(m_next);

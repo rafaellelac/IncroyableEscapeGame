@@ -1,7 +1,6 @@
 #include "MECEnigme.hh"
-#include <memory>
-#include "MazeGame.hh"
 #include "Enigme.hh"
+#include <memory>
 
 
 MECEnigme::MECEnigme(std::shared_ptr<Context> &context) : MEC(context) {}
@@ -19,15 +18,15 @@ void MECEnigme::Init(){
     );
 
     //Context Text
-    m_enigmecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
-    m_enigmecontext.setFillColor(sf::Color::Black);
-    m_enigmecontext.setCharacterSize(24);
-    m_enigmecontext.setString("J'espere que tu connais\n l'enigme d'einstein parce qu'il\n faut maintenant en resoudre\n une variante sur des femmes incroyables!\n\nTu peux bouger les images\npour trouver les bonnes combinaisons.\nUne fois sur(e) des combinaisons,\nreponds a la question en dessous\n et valide la reponse\n\nBonne chance!");
-    m_enigmecontext.setOrigin(
-        m_enigmecontext.getLocalBounds().width / 2, 
-        m_enigmecontext.getLocalBounds().height / 2
+    m_gamecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
+    m_gamecontext.setFillColor(sf::Color::Black);
+    m_gamecontext.setCharacterSize(24);
+    m_gamecontext.setString("J'espere que tu connais l'enigme d'einstein \nparce qu'il faut maintenant en resoudre une variante \nsur des femmes incroyables!\n\nTu peux bouger les images pour trouver \nles bonnes combinaisons.Une fois sur(e) des combinaisons,\nreponds a la question en dessous et valide la reponse\n\nBonne chance!");
+    m_gamecontext.setOrigin(
+        m_gamecontext.getLocalBounds().width / 2, 
+        m_gamecontext.getLocalBounds().height / 2
     );
-    m_enigmecontext.setPosition(
+    m_gamecontext.setPosition(
         m_context->m_window->getSize().x/2,
         m_context->m_window->getSize().y/2 + 150
     );
@@ -107,7 +106,7 @@ void MECEnigme::ProcessInput(){
 void MECEnigme::Draw() {
     m_context->m_window->clear();
     m_context->m_window->draw(m_backgroundSprite);
-    m_context->m_window->draw(m_enigmecontext);
+    m_context->m_window->draw(m_gamecontext);
     m_context->m_window->draw(m_quizzhint);
     m_context->m_window->draw(m_congrats);   
     m_context->m_window->draw(m_next);

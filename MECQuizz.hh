@@ -7,9 +7,8 @@
 class MECQuizz : public MEC {
 
     private:
-    sf::Text m_congrats;
-    sf::Text m_quizzcontext;
-    sf::Text m_puzzlehint;
+        sf::Text m_congrats;
+        sf::Text m_puzzlehint;
  
     
     public:

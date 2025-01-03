@@ -8,7 +8,6 @@ class MECEnigme : public MEC {
 
     private:
     sf::Text m_congrats;
-    sf::Text m_enigmecontext;
     sf::Text m_quizzhint;
  
     

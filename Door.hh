@@ -8,6 +8,7 @@
 #include "game.hh"
 
 class Door : public Engine::State{
+
     private:
         std::shared_ptr<Context> m_context;
         sf::Sprite m_backgroundSprite;
@@ -26,6 +27,4 @@ class Door : public Engine::State{
         void ProcessInput() override;
         void Update(sf::Time deltaTime) override;
         void Draw() override;
-
-
 };

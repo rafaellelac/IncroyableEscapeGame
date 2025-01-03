@@ -7,9 +7,8 @@
 class MECPuzzle : public MEC {
 
     private:
-    sf::Text m_congrats;
-    sf::Text m_puzzlecontext;
-    sf::Text m_mazehint;
+        sf::Text m_congrats;
+        sf::Text m_mazehint;
  
     
     public:

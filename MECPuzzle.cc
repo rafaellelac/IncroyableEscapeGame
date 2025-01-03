@@ -1,6 +1,4 @@
 #include "MECPuzzle.hh"
-#include <memory>
-#include "MazeGame.hh"
 #include "Puzzle.hh"
 
 MECPuzzle::MECPuzzle(std::shared_ptr<Context> &context) : MEC(context) {}
@@ -19,15 +17,15 @@ void MECPuzzle::Init(){
     );
 
     //Context Text
-    m_puzzlecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
-    m_puzzlecontext.setFillColor(sf::Color::Black);
-    m_puzzlecontext.setCharacterSize(30);
-    m_puzzlecontext.setString("Maintenant, faites coulisser les nombres pour les \nremettre dans l'ordre croissant.\nde gauche a droite, le 1 en haut a gauche!");
-    m_puzzlecontext.setOrigin(
-        m_puzzlecontext.getLocalBounds().width / 2, 
-        m_puzzlecontext.getLocalBounds().height / 2
+    m_gamecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
+    m_gamecontext.setFillColor(sf::Color::Black);
+    m_gamecontext.setCharacterSize(30);
+    m_gamecontext.setString("Maintenant, faites coulisser les nombres pour les \nremettre dans l'ordre croissant.\nde gauche a droite, le 1 en haut a gauche!");
+    m_gamecontext.setOrigin(
+        m_gamecontext.getLocalBounds().width / 2, 
+        m_gamecontext.getLocalBounds().height / 2
     );
-    m_puzzlecontext.setPosition(
+    m_gamecontext.setPosition(
         m_context->m_window->getSize().x/2,
         m_context->m_window->getSize().y/2 + 150
     );
@@ -111,7 +109,7 @@ void MECPuzzle::Update(sf::Time deltaTime) {}
 void MECPuzzle::Draw() {
     m_context->m_window->clear();
     m_context->m_window->draw(m_backgroundSprite);
-    m_context->m_window->draw(m_puzzlecontext);
+    m_context->m_window->draw(m_gamecontext);
     m_context->m_window->draw(m_mazehint);
     m_context->m_window->draw(m_congrats);   
     m_context->m_window->draw(m_next);

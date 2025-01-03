@@ -1,6 +1,6 @@
 #include "game.hh"
-#include "SFML/Graphics.hpp"
 #include "MainMenu.hh"
+#include "SFML/Graphics.hpp"
 
 Game::Game() : m_context(std::make_shared<Context>()){
     m_context->m_window->create(sf::VideoMode(1250, 780), "Incroyable Escape Game", sf::Style::Close);
@@ -19,8 +19,8 @@ void Game::Run(){
         timeSinceLastFrame += clock.restart();   
         while (timeSinceLastFrame > TIME_PER_FRAME)
         {
-            timeSinceLastFrame -= TIME_PER_FRAME;
-            m_context->m_states->ProcessStateChange();
+            timeSinceLastFrame -= TIME_PER_FRAME; 
+            m_context->m_states->ProcessStateChange(); 
             m_context->m_states->GetCurrent()->ProcessInput();
             m_context->m_states->GetCurrent()->Update(TIME_PER_FRAME);
             m_context->m_states->GetCurrent()->Draw();

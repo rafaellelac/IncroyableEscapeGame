@@ -11,7 +11,7 @@ Scores::Scores(std::shared_ptr<Context> &context) : m_context(context) {}
 
 void Scores::Init(){
 
-    m_context->m_assets->AddFont(BOARD_FONT, "ASSETS/Chalk.otf" );
+    m_context->m_assets->AddFont(BOARD_FONT, "ASSETS/Chalk.ttf" );
     m_context->m_assets->AddTexture(BOARD, "ASSETS/blackboard.jpg" );
 
     //Background
@@ -29,67 +29,42 @@ void Scores::Init(){
     m_back.setPosition(20,20);
     m_back.setString("Appuyer sur RETOUR pour retourner au Menu Principal");
 
-    ifstream highscoreFile("ASSETS/highscore.txt");
-    if(!highscoreFile) {
-        cerr << "Failed to open highscore file." << std::endl;
-        return;
-    }
-
-    string line;
-    getline(highscoreFile, line);
-    istringstream iss(line);
-    string entry;
-
-    while (getline(iss, entry, '|')) {
-        istringstream entryStream(entry);
-        string name;
-        string score;
-
-        getline(entryStream, name, ',');
-        getline(entryStream, score);
-
-        // Remove any leading/trailing whitespace
-        name.erase(name.find_last_not_of(" \n\r\t") + 1);
-        score.erase(score.find_last_not_of(" \n\r\t") + 1);
-
-        int points = stoi(score);
-        m_highscoreList.push_back(make_pair(name, points));
-    }
-    highscoreFile.close();
-
-    // Sort the highscores in descending order
-    sort(m_highscoreList.begin(), m_highscoreList.end(), []
-            (const auto& a, const auto& b) {
-        return a.second > b.second;
-    });
-
-    // Only keep the top 10 highscores
-    if (m_highscoreList.size() > 10) {
-        m_highscoreList.resize(10);
-    }
-
-    ShowHighScore();
+    LoadHighScores();
 }
 
-void Scores::ShowHighScore(){
-    m_highscoreTexts.clear();
 
-    float y = 105.0f; // Starting position
-    int rank = 1;
-    for (const auto& highscore : m_highscoreList) {
-        sf::Text text;
-        text.setFont(m_context->m_assets->GetFont(BOARD_FONT));
-        text.setCharacterSize(50);
-        text.setStyle(sf::Text::Bold);
-        text.setFillColor(sf::Color::White);
-        text.setPosition(455.f, y);
-        text.setString(std::to_string(rank) + ". " + highscore.first + "  " + std::to_string(highscore.second));
-        m_highscoreTexts.push_back(text);
-
-        rank++;
-        y += 40.f;
+void Scores::LoadHighScores() {
+    std::ifstream highscoreFile("ASSETS/highscore.txt");
+    if (highscoreFile.is_open()) {
+        std::string line;
+        m_scores.clear();  // Clear previous scores if reloading
+        while (std::getline(highscoreFile, line)) {
+            std::istringstream lineStream(line);
+            std::string name, time;
+            lineStream >> name;
+            std::getline(lineStream, time);  // Get the rest of the line as the time
+            m_scores.emplace_back(name + " " + time);
+        }
+        highscoreFile.close();
+    } else {
+        std::cerr << "Unable to open highscores.txt" << std::endl;
     }
+
+    // Combine the scores into a single string for display
+    std::string scoresStr;
+    for (const auto &score : m_scores) {
+        scoresStr += score + "\n";
+    }
+    m_scoresText.setString(scoresStr);
+
+    // Set text properties
+    m_scoresText.setFont(m_context->m_assets->GetFont(BOARD_FONT));
+    m_scoresText.setFillColor(sf::Color::White);
+    m_scoresText.setCharacterSize(50);
+    m_scoresText.setPosition(50, 100);
 }
+
+
 
 void Scores::ProcessInput(){
     sf::Event event;
@@ -119,8 +94,6 @@ void Scores::Draw() {
     m_context->m_window->clear();
     m_context->m_window->draw(m_backgroundSprite);
     m_context->m_window->draw(m_back);
-    for (const auto& text : m_highscoreTexts) {
-        m_context->m_window->draw(text);
-    }
+    m_context->m_window->draw(m_scoresText);
     m_context->m_window->display();
 }

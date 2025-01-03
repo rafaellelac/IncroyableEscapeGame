@@ -1,6 +1,5 @@
 #include "HS.hh"
 #include "Classroom.hh"
-#include <memory>
 
 
 HS::HS(std::shared_ptr<Context> &context) : m_context(context) {}

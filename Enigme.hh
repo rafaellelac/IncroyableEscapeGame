@@ -22,32 +22,33 @@ struct Cell {
 
 
 class Enigme : public MiniGame {
-private:
-    std::shared_ptr<Context> m_context;
-    sf::RenderWindow m_window;
-    sf::RectangleShape m_inputBox;
-    sf::Text m_inputText;
-    std::string m_playerInput;
-    sf::Text m_answerText;
-    sf::Text m_phraseText;
-    std::array<sf::Texture, 5> maisonTextures;
-    std::array<sf::Texture, 5> femmeTextures;
-    std::array<sf::Texture, 5> boissonTextures;
-    std::array<sf::Texture, 5> animalTextures;
+    private:
+        std::shared_ptr<Context> m_context;
+        sf::RenderWindow m_window;
+        sf::RectangleShape m_inputBox;
+        sf::Text m_inputText;
+        std::string m_playerInput;
+        sf::Text m_answerText;
+        sf::Text m_phraseText;
+        sf::RectangleShape m_answerBox;
+        std::array<sf::Texture, 5> maisonTextures;
+        std::array<sf::Texture, 5> femmeTextures;
+        std::array<sf::Texture, 5> boissonTextures;
+        std::array<sf::Texture, 5> animalTextures;
 
-    std::array<Cell, 3> grid;
-    bool isDragging;
-    sf::Sprite* currentDraggable;
-    sf::Vector2i dragOffset;
-    bool iscompleted;
-    sf::RectangleShape m_answerBox;
-    std::map<const sf::Texture*, int> textureIDs;
+        std::array<Cell, 3> grid;
+        bool isDragging;
+        sf::Sprite* currentDraggable;
+        sf::Vector2i dragOffset;
+        bool iscompleted;
+        std::map<const sf::Texture*, int> textureIDs;
 
-public:
-    Enigme(std::shared_ptr<Context> &context);
-    void Init() override;
-    void ProcessInput() override;
-    void Update(sf::Time deltaTime) override;
-    void Draw() override;
-    bool isCompleted() const override;
+
+    public:
+        Enigme(std::shared_ptr<Context> &context);
+        void Init() override;
+        void ProcessInput() override;
+        void Update(sf::Time deltaTime) override;
+        void Draw() override;
+        bool isCompleted() const override;
 };

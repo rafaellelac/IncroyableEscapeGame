@@ -6,10 +6,6 @@
 
 class MECMaze : public MEC {
 
-    private:
-    sf::Text m_mazecontext;
- 
-    
     public:
         MECMaze(std::shared_ptr<Context> &context);
         void Init() override;

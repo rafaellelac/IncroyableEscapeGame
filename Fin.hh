@@ -6,16 +6,14 @@
 
 class Fin : public Engine::State {
 
-    protected:
+    private:
     std::shared_ptr<Context> m_context;
     sf::Sprite m_backgroundSprite;
     sf::Text m_congrats;
-    sf::Text m_time;
-    sf::Text m_mainmenu;
-    static int m_score;
     std::string m_playerInput;
     sf::Text m_playerText;
     sf::Clock m_clock;
+
 
     public:
         Fin(std::shared_ptr<Context> &context);
@@ -24,7 +22,4 @@ class Fin : public Engine::State {
         void Update(sf::Time deltaTime) override;
         void Draw() override;
         void AddHighScore();
-        static void SetScore(int newScore);
-        int GetScore();
-
 };

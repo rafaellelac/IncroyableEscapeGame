@@ -8,6 +8,7 @@
 #include "game.hh"
 
 class MainMenu : public Engine::State{
+    
     private:
         std::shared_ptr<Context> m_context;
         sf::Sprite m_backgroundSprite;

@@ -7,7 +7,7 @@
 
 class LastScreen : public MEC {
 
-    protected:
+    private:
     sf::Text m_gamecontext;
     sf::Text m_next;
     sf::Text m_code1;

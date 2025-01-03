@@ -1,8 +1,6 @@
 #include "LastScreen.hh"
-#include <memory>
-#include "MazeGame.hh"
-#include "Puzzle.hh"
 #include "Classroom.hh"
+
 
 LastScreen::LastScreen(std::shared_ptr<Context> &context) : MEC(context) {}
 
@@ -35,31 +33,31 @@ void LastScreen::Init(){
 
     //code 1 
     m_code1.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
-    m_code1.setFillColor(sf::Color::Black);
+    m_code1.setFillColor(sf::Color::Red);
     m_code1.setCharacterSize(30);
     m_code1.setString("IN");
-    m_code1.setPosition(350,370);
+    m_code1.setPosition(400,450);
 
     //code 2
     m_code2.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
-    m_code2.setFillColor(sf::Color::Black);
+    m_code2.setFillColor(sf::Color::Red);
     m_code2.setCharacterSize(30);
     m_code2.setString("PP");
-    m_code2.setPosition(450,450);
+    m_code2.setPosition(500,450);
 
     //code 3
     m_code3.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
-    m_code3.setFillColor(sf::Color::Black);
+    m_code3.setFillColor(sf::Color::Red);
     m_code3.setCharacterSize(30);
     m_code3.setString("4C");
-    m_code3.setPosition(550,450);
+    m_code3.setPosition(600,450);
 
     //code 4
     m_code4.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
-    m_code4.setFillColor(sf::Color::Black);
+    m_code4.setFillColor(sf::Color::Red);
     m_code4.setCharacterSize(30);
     m_code4.setString("MA");
-    m_code4.setPosition(650,450);
+    m_code4.setPosition(700,450);
 
 
 

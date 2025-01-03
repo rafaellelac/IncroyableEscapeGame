@@ -1,8 +1,7 @@
 #include "MECMaze.hh"
-#include "Classroom.hh"
-#include <memory>
 #include "MazeGame.hh"
-#include "Enigme.hh"
+#include <memory>
+
 
 MECMaze::MECMaze(std::shared_ptr<Context> &context) : MEC(context) {}
 
@@ -20,15 +19,15 @@ void MECMaze::Init(){
     );
 
     //Context Text
-    m_mazecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
-    m_mazecontext.setFillColor(sf::Color::Black);
-    m_mazecontext.setCharacterSize(35);
-    m_mazecontext.setString("Bienvenue \n\nAidez Naomi Parker a sortir du labyrinthe,\nyou can do it!\nPour cela, utilisez les fleches \ndirectionnelles de votre clavier.\n\nAttention, chaque detail compte, \nprenez des notes!");
-    m_mazecontext.setOrigin(
-        m_mazecontext.getLocalBounds().width / 2, 
-        m_mazecontext.getLocalBounds().height / 2
+    m_gamecontext.setFont(m_context->m_assets->GetFont(COMPUTER_FONT));
+    m_gamecontext.setFillColor(sf::Color::Black);
+    m_gamecontext.setCharacterSize(35);
+    m_gamecontext.setString("Bienvenue \n\nAidez Naomi Parker a sortir du labyrinthe,\nyou can do it!\nPour cela, utilisez les fleches \ndirectionnelles de votre clavier.\n\nAttention, chaque detail compte, \nprenez des notes!");
+    m_gamecontext.setOrigin(
+        m_gamecontext.getLocalBounds().width / 2, 
+        m_gamecontext.getLocalBounds().height / 2
     );
-    m_mazecontext.setPosition(
+    m_gamecontext.setPosition(
         m_context->m_window->getSize().x/2,
         m_context->m_window->getSize().y/2
     );
@@ -82,7 +81,7 @@ void MECMaze::Update(sf::Time deltaTime) {}
 void MECMaze::Draw() {
     m_context->m_window->clear();
     m_context->m_window->draw(m_backgroundSprite);
-    m_context->m_window->draw(m_mazecontext);
+    m_context->m_window->draw(m_gamecontext);
     m_context->m_window->draw(m_next);
     m_context->m_window->display();
 }
