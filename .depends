@@ -1,1 +1,21 @@
-main.o: main.cc
+-MM
+Classroom.cc
+Door.cc
+Enigme.cc
+Fin.cc
+HS.cc
+LastScreen.cc
+MEC.cc
+MECEnigme.cc
+MECMaze.cc
+MECPuzzle.cc
+MECQuizz.cc
+MainMenu.cc
+MazeGame.cc
+Puzzle.cc
+Quizz.cc
+Scores.cc
+asset.cc
+game.cc
+main.cc
+state.cc

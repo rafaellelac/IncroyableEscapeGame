@@ -1,29 +1,24 @@
 CC=g++
-CCFLAGS= -Wall -Werror -std=c++17 -g
-LIBFLAGS= 
-SRC= $(wildcard *.cc)
-OBJ= $(SRC:.cc=.o)
-STTGAME = State-and-game/
+CCFLAGS= -Wall -Werror -std=c++17 -g -Iinclude
+LIBFLAGS= -lsfml-graphics -lsfml-window -lsfml-system
+SRC= $(wildcard src/*.cc)
+OBJ= $(SRC:src/%.cc=bin/%.o)
 EXEC= escapegame
-
 
 all: $(EXEC)
 
-sttandgame:
-	cd $(STTGAME) ; make
-
 $(EXEC): $(OBJ)
-	$(CC) $(LIBFLAGS) $^ -o $@  -lsfml-graphics -lsfml-window -lsfml-system
+	$(CC) $(LIBFLAGS) $^ -o $@ $(LIBFLAGS)
 
-%.o: %.cc
+bin/%.o: src/%.cc
 	$(CC) $(CCFLAGS) -o $@ -c $<
 
 .depends:
-	g++ -MM $(SRC) > .depends
+	$(CC) -MM $(SRC) -Iinclude > .depends
 
--include .depends
+	-include .depends
 
 clean:
-	rm -f $(OBJ) $(EXEC) *.*~
+	rm -f bin/*.o $(EXEC) *.*~
 
-
+.PHONY: all clean
