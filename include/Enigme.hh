@@ -12,7 +12,6 @@ struct Cell {
     sf::Sprite maison;
     sf::Sprite femme;
     sf::Sprite boisson;
-    sf::Sprite cigare;
     sf::Sprite animal;
 };
 
