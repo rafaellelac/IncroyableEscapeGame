@@ -11,10 +11,10 @@ Bienvenue au manuel d'utilisation de notre Incroyable escape game! Lorsque vous 
 - Le code du source du jeu dispoinible sur GitHub
 
 #### Les etapes de l'installation et le lancement
-1- Cloner le dépôt git: 
+1. Cloner le dépôt git: 
   git clone https://github.com/rafaellelac/IncroyableEscapeGame.git 
-2- Compiler le projet avec le Makefile: make
-3- Exécuter le jeu: ./escapegame
+2. Compiler le projet avec le Makefile: make
+3. Exécuter le jeu: ./escapegame
 
 
 ### 3. Game Controls
@@ -27,13 +27,13 @@ Bienvenue au manuel d'utilisation de notre Incroyable escape game! Lorsque vous 
 Le but du jeu est de trouver ou sont les Mini Jeux, les completer, et utiliser le code obtenu pour deverouiller la porte. A ce moment la, le temps que vous avez pris sera affiche et il faudra entrer votre nom pour ajouter votre temps a la page des scores.
 
 #### Game Flow:
-1- Apres avoir appuye sur start, le contexte du jeu s'affichera puis vous vous retrouverez dans la salle de TP
+1. Apres avoir appuye sur start, le contexte du jeu s'affichera puis vous vous retrouverez dans la salle de TP
 2. Lorsque vous aurez trouve l'ordinateur qui fonctionne, vous pourrez d'abord lancer le labyrinthe, duquel il faudra sortir avec les fleches directionelle. N.B, Lorsque vous arrivez a la sortie alles bien vers la droite de l'ecran pour que le mini jeu soit valide.
-3- Nous vous conseillons de prendre les indices en photo ou les noter quelque part, ils vous seront utiles et vous ne pourrez pas revenir a la page ou ils sont donnes.
+3. Nous vous conseillons de prendre les indices en photo ou les noter quelque part, ils vous seront utiles et vous ne pourrez pas revenir a la page ou ils sont donnes.
 4. Ensuite, vous lancerez le 15 puzzle,qui est le minijeu le plus "complique". Appuyer avec votre souris sur le nombre que vous voulez bouger jusqu'a ce que vous ayez une configuration croissante
 5. Il y aura ensuite le quizz, il faudra utiliser les touches A B et C du clavier pour repondre, vous aurez 15sec par question. Mauvaise reponse ou temps ecoule, le quizz recommence.
 6. Finalement, la variante de l'enigme d'einstein qu'il faudra resoudre a l'aide des indices obtenus. Vous pouvez utiliser le drag and drop pour visualiser les indices, mais la reponse finale a la question devra etre entree sur le clavier et validee en appuyant sur le bouton check answer
-7- Des parties de code s'afficherons et il faudra retourner a la porte dans la salle pour l'entrer sur le clavier, appuyer sur ENTRER et sortir.
+7. Des parties de code s'afficherons et il faudra retourner a la porte dans la salle pour l'entrer sur le clavier, appuyer sur ENTRER et sortir.
 
 ### 5. Cheat "code"
 Si besoin de skip un des mini jeux pour passer directement au prochain suivre les etapes suivantes.
