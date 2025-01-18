@@ -66,12 +66,12 @@ void MEC::ProcessInput(){
             m_context->m_window->close();
         else if (event.type == sf::Event::KeyPressed){
             switch (event.key.code){
-                case sf::Keyboard::BackSpace:
+                case sf::Keyboard::BackSpace: // si espace est appuye on reient au state precedent
                     {
                     m_context->m_states->PopCurrent();                       
                     }
                     break;
-                case sf::Keyboard::Return:
+                case sf::Keyboard::Return: // si c'est ENTRER, on commence le jeu
                     {
                    m_context->m_states->Add(std::make_unique<Classroom>(m_context));
                     }

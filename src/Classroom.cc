@@ -173,6 +173,7 @@ void Classroom::ProcessInput(){
 
 
 void Classroom::Update(sf::Time deltaTime) {
+    // on va au 'state' precise dans le cas ou un bouton est appuye
     if (isComputerPressed) {
         m_context->m_states->Add(std::make_unique<MECMaze>(m_context));
         isComputerPressed = false;

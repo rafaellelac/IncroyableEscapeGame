@@ -7,10 +7,14 @@
 
 
 MainMenu::MainMenu(std::shared_ptr<Context> &context):
-m_context(context),
-isPlayButtonSelected(true),isPlayButtonPressed(false),
-isScoresButtonSelected(false),isScoresButtonPressed(false),isExitButtonSelected(false),isExitButtonPressed(false){   
-    };
+    m_context(context),
+    isPlayButtonSelected(true),
+    isPlayButtonPressed(false),
+    isScoresButtonSelected(false),
+    isScoresButtonPressed(false),
+    isExitButtonSelected(false),
+    isExitButtonPressed(false)
+{};
 
 void MainMenu::Init() {
 
@@ -98,6 +102,7 @@ void MainMenu::ProcessInput() {
         if (event.type == sf::Event::Closed)
             m_context->m_window->close();
         else if (event.type == sf::Event::KeyPressed){
+            //on utilise les fleches directionelles, et la touche entrer pour naviguer dans le menu
             switch (event.key.code){
                 case sf::Keyboard::Up:
                     {
@@ -156,6 +161,7 @@ void MainMenu::ProcessInput() {
         
         
 void MainMenu::Update(sf::Time deltaTime) {
+    // le bouton selectionne a l'aide des fleches devient rouge
     if(isPlayButtonSelected){
         m_playButton.setFillColor(sf::Color::Red);
         m_scoresButton.setFillColor(sf::Color::White);
