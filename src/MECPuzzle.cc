@@ -1,6 +1,5 @@
 #include "MECPuzzle.hh"
 #include "Puzzle.hh"
-#include "Quizz.hh"
 
 MECPuzzle::MECPuzzle(std::shared_ptr<Context> &context) : MEC(context) {}
 
@@ -93,7 +92,7 @@ void MECPuzzle::ProcessInput(){
                     break;
                 case sf::Keyboard::Return:
                     {
-                   m_context->m_states->Add(std::make_unique<Quizz>(m_context));
+                   m_context->m_states->Add(std::make_unique<Puzzle>(m_context));
                     }
                     break;
                 default:

@@ -35,4 +35,9 @@ class Quizz : public MiniGame {
         bool isCompleted() const override;
         void ResetGame();
         void AddQuestions();
+        // Surcharge de l'opérateur += pour ajouter une nouvelle question
+        Quizz& operator+=(const Question& question) {
+            m_questions.push_back(question);
+            return *this;
+        }
 };
